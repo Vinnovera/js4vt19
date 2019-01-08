@@ -17,6 +17,9 @@ class ControlledForm extends React.Component {
     };
 
     // Make "this" available in custom methods
+    // You can skip this by using arrow declarations for functions, which is
+    // currently the preferred method, but see this article and the comments for discussion on this
+    // https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1
     this.tick = this.tick.bind(this);
     this.onFormNameChange = this.onFormNameChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -122,7 +125,7 @@ class FormContainer extends React.Component {
     this.state = ({ valid: false, showForm: true });
   }
 
-  // Fat arrow functions have the correct scope, but are a bit less performant
+  // Fat arrow functions have the correct scope, but see discussion above
   onFormSubmit = (formData) => {
     // Fake a submit and validation
     setTimeout(() => {
@@ -130,7 +133,7 @@ class FormContainer extends React.Component {
     }, 1000);
   }
 
-  // Fat arrow functions have the correct scope, but are a bit less performant
+  // Fat arrow functions have the correct scope, but see discussion above
   removeForm = () => {
     this.setState({ showForm: false })
   }

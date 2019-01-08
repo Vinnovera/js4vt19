@@ -101,6 +101,9 @@ class ControlledForm extends React.Component {
     if (!prevProps.valid && this.props.valid) {
       alert('Du har skickat din data!');
     }
+    if (prevState.date !== this.state.date) {
+      document.title = `React Example @ ${this.state.date.toLocaleTimeString()}`;
+    }
     console.log('componentDidUpdate');
   }
 
